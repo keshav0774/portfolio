@@ -142,7 +142,7 @@ export default function Projects() {
           className="mt-12 text-center"
         >
           <a
-            href="https://github.com/keshav0774/keshavmishra"
+            href="https://github.com/keshav0774"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 font-mono text-sm text-[#e8e6e1]/40 hover:text-[#d4d2cc] transition-colors duration-200 group"

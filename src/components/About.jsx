@@ -47,9 +47,9 @@ export default function About() {
             </motion.div>
 
             {[
-              "I'm a Mechanical Engineering student at a technical university in India, but code is where I spend most of my time. I made the shift into software development because I love the idea of building things that actually work - and scale.",
-              "My primary focus is backend development. I enjoy thinking about how systems are designed, how data flows, and how to make things fast and reliable. Alongside that, I build full-stack web apps with React on the frontend.",
-              "I'm consistently practicing Data Structures & Algorithms on LeetCode and GFG - not just to crack interviews, but because problem solving is something I genuinely enjoy.",
+             "I'm a Mechanical Engineering student at SRMS College of Engineering & Technology who chose to pursue software development out of genuine interest. I enjoy building backend systems, designing APIs, and developing full-stack applications that are scalable, maintainable, and user-focused.",
+            "My core stack includes React, Node.js, Express.js, MongoDB, and REST APIs. I also solve Data Structures & Algorithms problems regularly on LeetCode and GeeksforGeeks to sharpen my problem-solving and coding skills.",
+            "I'm currently looking for opportunities where I can contribute to real-world products, learn from experienced engineers, and grow as a backend-focused software developer"
             ].map((text, i) => (
               <motion.p
                 key={i}

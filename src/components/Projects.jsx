@@ -91,18 +91,15 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-6 items-start">
           {projects.map((project, i) => (
             <motion.div
               key={project.name}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.65, delay: i * 0.15 }}
-              className={`group relative flex flex-col p-6 rounded-xl border bg-[#1a1a1a] card-hover ${
-                project.featured
-                  ? 'lg:col-span-2 border-[#d4d2cc35] shadow-[0_20px_70px_#d4d2cc10]'
-                  : 'border-[#d4d2cc15]'
-              }`}
+            
+              className="group relative flex flex-col p-6 rounded-xl border border-[#d4d2cc15] bg-[#1a1a1a] card-hover"
             >
               <div className="flex items-start justify-between gap-4 mb-5">
                 <span className="font-mono text-4xl font-bold text-[#d4d2cc18] select-none">

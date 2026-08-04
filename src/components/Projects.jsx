@@ -8,27 +8,58 @@ const projects = [
     number: '01',
     name: 'CodeIt',
     description:
-    'A full stack coding platform with secure JWT + Redis auth, OTP-based email verification, and forgot password flow. Supports running & submitting code in 10+ languages with an AI Chat Assistant that gives hints per problem. Includes submission history with runtime, memory & test case results, and a profile page tracking Easy/Medium/Hard solved problems. Admins can create, update, delete problems with visible & hidden test cases.',
+      'A production-style coding platform built around real interview-prep workflows: secure authentication, problem management, code execution, AI-assisted hints, and submission analytics in one full-stack system.',
+    highlights: [
+      'JWT + Redis auth with OTP email verification and forgot-password recovery',
+      'Run and submit code in 10+ languages with visible and hidden test cases',
+      'Admin problem management, AI hint assistant, and profile-level progress tracking',
+    ],
     tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Redis', 'JWT', 'AI'],
     github: 'https://github.com/keshav0774/CodeIT',
     live: 'https://code-it-lilac.vercel.app/signup',
-    status: 'Full Stack',
+    status: 'Flagship Full Stack',
+    featured: true,
   },
   {
     number: '02',
+    name: 'NEXUS',
+    description:
+      'A lightweight cybersecurity-inspired system automation suite focused on local-first observability, developer utilities, and voice-driven machine automation while keeping user data on the device.',
+    highlights: [
+      'Backend-first architecture for system checks, local automation, and utility workflows',
+      'Privacy-conscious design where sensitive system data stays on the machine',
+      'Designed as a practical command center for developers and power users',
+    ],
+    tech: ['Node.js', 'Express', 'Automation', 'System Tools', 'Security', 'Voice UX'],
+    github: '',
+    live: '',
+    status: 'In Progress',
+  },
+  {
+    number: '03',
     name: 'TaskFlow App',
     description:
       'A full-stack task management web app with user authentication, drag-and-drop boards, and real-time updates. Clean UI built in React + Tailwind, with an Express backend and MongoDB storage.',
+    highlights: [
+      'JWT-based authentication for protected user workflows',
+      'Kanban-style task movement with a focused dashboard UI',
+      'REST API backend connected to MongoDB persistence',
+    ],
     tech: ['React', 'Tailwind CSS', 'Express', 'MongoDB', 'JWT'],
     github: 'https://github.com/keshav0774/keshavmishra/taskflow',
     live: 'https://taskflow-demo.vercel.app',
     status: 'Full Stack',
   },
   {
-    number: '03',
+    number: '04',
     name: 'DSA Tracker',
     description:
-      'A personal tool to log and track DSA problem-solving progress across LeetCode and GFG. Supports topic-wise filtering, difficulty tags, and a daily streak counter. Helped me stay consistent.',
+      'A personal tool to log and track DSA problem-solving progress across LeetCode and GFG with topic filters, difficulty tags, and a daily streak counter.',
+    highlights: [
+      'Tracks consistency across coding platforms',
+      'Filters problems by topic and difficulty',
+      'Uses localStorage for fast personal progress tracking',
+    ],
     tech: ['React', 'Tailwind CSS', 'localStorage', 'JavaScript'],
     github: 'https://github.com/keshav0774/keshavmishra/dsa-tracker',
     live: 'https://dsa-tracker-km.vercel.app',
@@ -55,6 +86,9 @@ export default function Projects() {
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-[#e8e6e1]">
             Things I've built
           </h2>
+          <p className="text-[#e8e6e1]/45 mt-4 max-w-2xl font-light leading-relaxed">
+            Focused on backend-heavy products, real authentication flows, automation, and practical tools that show system thinking.
+          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-6">
@@ -64,29 +98,38 @@ export default function Projects() {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.65, delay: i * 0.15 }}
-              className="group relative flex flex-col p-6 rounded-xl border border-[#d4d2cc15] bg-[#1a1a1a] card-hover"
+              className={`group relative flex flex-col p-6 rounded-xl border bg-[#1a1a1a] card-hover ${
+                project.featured
+                  ? 'lg:col-span-2 border-[#d4d2cc35] shadow-[0_20px_70px_#d4d2cc10]'
+                  : 'border-[#d4d2cc15]'
+              }`}
             >
-              {/* Top row */}
-              <div className="flex items-start justify-between mb-5">
+              <div className="flex items-start justify-between gap-4 mb-5">
                 <span className="font-mono text-4xl font-bold text-[#d4d2cc18] select-none">
                   {project.number}
                 </span>
-                <span className="font-mono text-xs text-[#d4d2cc]/50 border border-[#d4d2cc25] px-2 py-1 rounded-md">
+                <span className="font-mono text-xs text-[#d4d2cc]/60 border border-[#d4d2cc25] px-2 py-1 rounded-md text-right">
                   {project.status}
                 </span>
               </div>
 
-              {/* Name */}
               <h3 className="font-display text-xl font-bold text-[#e8e6e1] mb-3 group-hover:text-[#d4d2cc] transition-colors duration-300">
                 {project.name}
               </h3>
 
-              {/* Description */}
-              <p className="text-[#e8e6e1]/50 text-sm leading-relaxed mb-6 flex-1 font-light">
+              <p className="text-[#e8e6e1]/55 text-sm leading-relaxed mb-5 font-light">
                 {project.description}
               </p>
 
-              {/* Tech stack */}
+              <ul className="space-y-2 mb-6 flex-1">
+                {project.highlights.map((item) => (
+                  <li key={item} className="flex gap-2 text-sm text-[#e8e6e1]/45 leading-relaxed font-light">
+                    <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-[#d4d2cc]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
               <div className="flex flex-wrap gap-1.5 mb-6">
                 {project.tech.map((t) => (
                   <span
@@ -98,43 +141,41 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Links */}
-              <div className="flex items-center gap-3 pt-4 border-t border-[#d4d2cc10]">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 font-mono text-xs text-[#e8e6e1]/50 hover:text-[#d4d2cc] transition-colors duration-200 group/link"
-                >
-                  <Github size={14} />
-                  <span>Source</span>
-                  <ArrowUpRight size={10} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
-                </a>
+              <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#d4d2cc10]">
+                {project.github ? (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 font-mono text-xs text-[#e8e6e1]/50 hover:text-[#d4d2cc] transition-colors duration-200 group/link"
+                  >
+                    <Github size={14} />
+                    <span>Source</span>
+                    <ArrowUpRight size={10} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                  </a>
+                ) : (
+                  <span className="font-mono text-xs text-[#e8e6e1]/30">Source coming soon</span>
+                )}
 
                 {project.live && (
-                  <>
-                    <span className="text-[#d4d2cc20]">·</span>
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 font-mono text-xs text-[#e8e6e1]/50 hover:text-[#d4d2cc] transition-colors duration-200 group/link"
-                    >
-                      <ExternalLink size={13} />
-                      <span>Live Demo</span>
-                      <ArrowUpRight size={10} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
-                    </a>
-                  </>
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 font-mono text-xs text-[#e8e6e1]/50 hover:text-[#d4d2cc] transition-colors duration-200 group/link"
+                  >
+                    <ExternalLink size={13} />
+                    <span>Live Demo</span>
+                    <ArrowUpRight size={10} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                  </a>
                 )}
               </div>
 
-              {/* Hover glow border */}
               <div className="absolute inset-0 rounded-xl border border-green-400/0 group-hover:border-green-400/20 transition-all duration-500 pointer-events-none" />
             </motion.div>
           ))}
         </div>
 
-        {/* GitHub CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

@@ -32,14 +32,14 @@ const contacts = [
     label: 'LeetCode',
     value: 'leetcode.com/u/keshavisyours',
     href: 'https://leetcode.com/u/keshavisyours/',
-    description: '200+ problems solved',
+    description: '250+ problems solved',
   },
   {
     icon: Terminal,
     label: 'GFG',
     value: 'geeksforgeeks.org/profile/keshav_0__',
     href: 'https://www.geeksforgeeks.org/profile/keshav_0__',
-    description: '300+ problems solved',
+    description: '320+ problems solved',
   },
 ]
 

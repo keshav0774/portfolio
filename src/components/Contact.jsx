@@ -3,7 +3,7 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Mail, Github, Linkedin, ArrowUpRight, Code2, Terminal } from 'lucide-react'
 
-const email = 'keshav0774@example.com'
+const email = 'keshav0774@gmail.com'
 
 const contacts = [
   {
